@@ -22,3 +22,7 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+.env
+/Users/pratisthachand/Desktop/CollabIT/client/src/utils/firebase.js
+
