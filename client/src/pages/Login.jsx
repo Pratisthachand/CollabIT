@@ -4,10 +4,10 @@ import { useNavigate } from "react-router-dom";
 import Textbox from "../components/Textbox";
 import Button from "../components/Button";
 import tailwindConfig from "../../tailwind.config";
-// import { useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 
 const Login = () => {
-  const user = "";
+  const { user } = useSelector((state) => state.auth);
   const {
     register,
     handleSubmit,
@@ -18,6 +18,8 @@ const Login = () => {
     console.log("submit");
   };
   const navigate = useNavigate();
+
+  // console.log(user);
 
   useEffect(() => {
     user && navigate("/dashboard");
