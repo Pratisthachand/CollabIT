@@ -53,7 +53,7 @@ const Users = () => {
       </td>
 
       <td className="p-2">{user.title}</td>
-      <td className="p-2">{user.email || "user.emal.com"}</td>
+      <td className="p-2">{user.email || "user@email.com"}</td>
       <td className="p-2">{user.role}</td>
 
       <td>
