@@ -12,7 +12,7 @@ import moment from "moment";
 import { summary } from "../assets/data";
 import clsx from "clsx";
 // import { Chart } from "../components/Chart";
-import { BGS, PRIOTITYSTYELS, TASK_TYPE, getInitials } from "../utils";
+import { BGS, PRIOTITYSTYLES, TASK_TYPE, getInitials } from "../utils";
 // import UserInfo from "../components/UserInfo";
 
 const TaskTable = ({ tasks }) => {
@@ -47,7 +47,7 @@ const TaskTable = ({ tasks }) => {
 
       <td className="py-2">
         <div className="flex gap-1 items-center">
-          <span className={clsx("text-lg", PRIOTITYSTYELS[task.priority])}>
+          <span className={clsx("text-lg", PRIOTITYSTYLES[task.priority])}>
             {ICONS[task.priority]}
           </span>
           <span className="capitalize">{task.priority}</span>
@@ -200,7 +200,7 @@ const Dashboard = () => {
     );
   };
   return (
-    <div classNamee="h-full py-4">
+    <div className="h-full py-4">
       <div className="grid grid-cols-1 md:grid-cols-4 gap-5">
         {stats.map(({ icon, bg, label, total }, index) => (
           <Card key={index} icon={icon} bg={bg} label={label} count={total} />
@@ -214,15 +214,12 @@ const Dashboard = () => {
         <Chart />
       </div> */}
 
-      {/* <div className="w-full flex flex-col md:flex-row gap-4 2xl:gap-10 py-8">
+      <div className="w-full flex flex-col md:flex-row gap-4 2xl:gap-10 py-8">
         {/* /left */}
-
-      {/* <TaskTable tasks={summary.last10Task} /> */}
-
-      {/* /right */}
-
-      {/* <UserTable users={summary.users} /> */}
-      {/* </div> */}
+        <TaskTable tasks={summary.last10Task} />
+        {/* /right */}
+        <UserTable users={summary.users} />
+      </div>
     </div>
   );
 };

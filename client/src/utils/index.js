@@ -1,4 +1,5 @@
 export const formatDate = (date) => {
+  // Get the month, day, and year
   const month = date.toLocaleString("en-US", { month: "short" });
   const day = date.getDate();
   const year = date.getFullYear();
@@ -33,7 +34,7 @@ export function getInitials(fullName) {
   return initialsStr;
 }
 
-export const PRIOTITYSTYELS = {
+export const PRIOTITYSTYLES = {
   high: "text-red-600",
   medium: "text-yellow-600",
   low: "text-blue-600",
