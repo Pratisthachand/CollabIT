@@ -1,8 +1,14 @@
 /** @type {import('tailwindcss').Config} */
-export default {
+const tailwindConfig = {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        "custom-purple": "#6B3BF6",
+      },
+    },
   },
   plugins: [],
 };
+
+export default tailwindConfig;
