@@ -14,6 +14,9 @@ const Login = () => {
     formState: { errors },
   } = useForm();
 
+  const submitHandler = async (data) => {
+    console.log("submit");
+  };
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -35,7 +38,7 @@ const Login = () => {
         </div>
         <div className="w-full md:w-1/3 p-4 md:p-1 flex flex-col justify-center items-center">
           <form
-            // onSubmit={handleSubmit(submitHandler)}
+            onSubmit={handleSubmit(submitHandler)}
             className="form-container w-full md:w-[400px] flex flex-col gap-y-8 bg-white px-10 pt-14 pb-14"
           >
             <div className="">

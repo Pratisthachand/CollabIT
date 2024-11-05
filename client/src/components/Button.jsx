@@ -4,7 +4,7 @@ import React from "react";
 const Button = ({ icon, className, label, type, onClick = () => {} }) => {
   return (
     <button
-      type={type || "button"}
+      type={type || "button"} //default -> act as a button
       className={clsx("px-3 py-2 outline-none", className)}
       onClick={onClick}
     >
