@@ -47,11 +47,10 @@ function App() {
           <Route path="/completed/:status" element={<Tasks />} />
           <Route path="/in-progress/:status" element={<Tasks />} />
           <Route path="/todo/:status" element={<Tasks />} />
-          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/timer" element={<Timer />} />
           <Route path="/team" element={<Users />} />
           <Route path="/trashed" element={<Trash />} />
           <Route path="/task/:id" element={<Taskdetails />} />
-          <Route path="/timer" element={<Timer />} />
         </Route>
 
         <Route path="/login" element={<Login />} />
