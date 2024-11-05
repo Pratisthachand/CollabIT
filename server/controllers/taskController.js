@@ -35,11 +35,11 @@ export const createTask = async (req, res) => {
       activities: activity,
     });
 
-    await Notice.create({
-      team,
-      text,
-      task: task._id,
-    });
+    // await Notice.create({
+    //   team,
+    //   text,
+    //   task: task._id,
+    // });
 
     res
       .status(200)
@@ -81,11 +81,11 @@ export const duplicateTask = async (req, res) => {
         task.priority
       } priority, so check and act accordingly. The task date is ${task.date.toDateString()}. Thank you!!!`;
 
-    await Notice.create({
-      team: task.team,
-      text,
-      task: newTask._id,
-    });
+    // await Notice.create({
+    //   team: task.team,
+    //   text,
+    //   task: newTask._id,
+    // });
 
     res
       .status(200)

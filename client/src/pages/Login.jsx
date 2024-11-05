@@ -14,16 +14,19 @@ const Login = () => {
     formState: { errors },
   } = useForm();
 
+  const navigate = useNavigate();
+
   const submitHandler = async (data) => {
     console.log("submit");
   };
-  const navigate = useNavigate();
 
   // console.log(user);
 
   useEffect(() => {
-    user && navigate("/dashboard");
-  }, [user]);
+    if (user) {
+      navigate("/dashboard");
+    }
+  }, [user, navigate]);
 
   return (
     <div className="w-full min-h-screen flex items-center justify-center flex-col lg:flex-row bg-[#f3f4f6]">

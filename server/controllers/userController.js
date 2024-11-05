@@ -83,7 +83,7 @@ export const loginUser = async (req, res) => {
 export const logoutUser = async (req, res) => {
   try {
     res.cookie("token", "", {
-      htttpOnly: true,
+      httpOnly: true,
       expires: new Date(0),
     });
 
@@ -121,42 +121,42 @@ export const getTeamList = async (req, res) => {
 //   }
 // };
 
-// export const updateUserProfile = async (req, res) => {
-//   try {
-//     const { userId, isAdmin } = req.user;
-//     const { _id } = req.body;
+export const updateUserProfile = async (req, res) => {
+  try {
+    const { userId, isAdmin } = req.user;
+    const { _id } = req.body;
 
-//     const id =
-//       isAdmin && userId === _id
-//         ? userId
-//         : isAdmin && userId !== _id
-//         ? _id
-//         : userId;
+    const id =
+      isAdmin && userId === _id
+        ? userId
+        : isAdmin && userId !== _id
+        ? _id
+        : userId;
 
-//     const user = await User.findById(id);
+    const user = await User.findById(id);
 
-//     if (user) {
-//       user.name = req.body.name || user.name;
-//       user.title = req.body.title || user.title;
-//       user.role = req.body.role || user.role;
+    if (user) {
+      user.name = req.body.name || user.name;
+      user.title = req.body.title || user.title;
+      user.role = req.body.role || user.role;
 
-//       const updatedUser = await user.save();
+      const updatedUser = await user.save();
 
-//       user.password = undefined;
+      user.password = undefined;
 
-//       res.status(201).json({
-//         status: true,
-//         message: "Profile Updated Successfully.",
-//         user: updatedUser,
-//       });
-//     } else {
-//       res.status(404).json({ status: false, message: "User not found" });
-//     }
-//   } catch (error) {
-//     console.log(error);
-//     return res.status(400).json({ status: false, message: error.message });
-//   }
-// };
+      res.status(201).json({
+        status: true,
+        message: "Profile Updated Successfully.",
+        user: updatedUser,
+      });
+    } else {
+      res.status(404).json({ status: false, message: "User not found" });
+    }
+  } catch (error) {
+    console.log(error);
+    return res.status(400).json({ status: false, message: error.message });
+  }
+};
 
 // export const markNotificationRead = async (req, res) => {
 //   try {
@@ -185,31 +185,31 @@ export const getTeamList = async (req, res) => {
 //   }
 // };
 
-// export const changeUserPassword = async (req, res) => {
-//   try {
-//     const { userId } = req.user;
+export const changeUserPassword = async (req, res) => {
+  try {
+    const { userId } = req.user;
 
-//     const user = await User.findById(userId);
+    const user = await User.findById(userId);
 
-//     if (user) {
-//       user.password = req.body.password;
+    if (user) {
+      user.password = req.body.password;
 
-//       await user.save();
+      await user.save();
 
-//       user.password = undefined;
+      user.password = undefined;
 
-//       res.status(201).json({
-//         status: true,
-//         message: `Password chnaged successfully.`,
-//       });
-//     } else {
-//       res.status(404).json({ status: false, message: "User not found" });
-//     }
-//   } catch (error) {
-//     console.log(error);
-//     return res.status(400).json({ status: false, message: error.message });
-//   }
-// };
+      res.status(201).json({
+        status: true,
+        message: `Password chnaged successfully.`,
+      });
+    } else {
+      res.status(404).json({ status: false, message: "User not found" });
+    }
+  } catch (error) {
+    console.log(error);
+    return res.status(400).json({ status: false, message: error.message });
+  }
+};
 
 export const activateUserProfile = async (req, res) => {
   try {
