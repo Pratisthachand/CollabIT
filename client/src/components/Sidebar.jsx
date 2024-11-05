@@ -6,7 +6,7 @@ import {
   MdSettings,
   MdTaskAlt,
 } from "react-icons/md";
-import { FaTasks, FaTrashAlt, FaUsers, FaClock } from "react-icons/fa";
+import { FaTasks, FaTrashAlt, FaUsers, FaClock, FaBell } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useLocation } from "react-router-dom";
 import { setOpenSidebar } from "../redux/slices/authSlice";
@@ -39,6 +39,11 @@ const linkData = [
     icon: <MdOutlinePendingActions />,
   },
   {
+    label: "Reminders",
+    link: "reminder",
+    icon: <FaBell />,
+  },
+  {
     label: "Timer",
     link: "timer",
     icon: <FaClock />,
@@ -57,11 +62,12 @@ const linkData = [
 
 const Sidebar = () => {
   const { user } = useSelector((state) => state.auth);
+  console.log(user);
   const dispatch = useDispatch();
   const location = useLocation();
   const path = location.pathname.split("/")[1];
 
-  const sidebarLinks = user?.isAdmin ? linkData : linkData.slice(0, 6);
+  const sidebarLinks = linkData;
 
   const closeSidebar = () => {
     dispatch(setOpenSidebar(false));

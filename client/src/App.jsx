@@ -2,7 +2,9 @@ import { useSelector } from "react-redux";
 import { Navigate, Outlet, Route, Routes, useLocation } from "react-router-dom";
 import { Toaster } from "sonner";
 import Sidebar from "./components/Sidebar";
+import Navbar from "./components/Navbar";
 import Login from "./pages/Login";
+import Reminders from "./pages/Reminders";
 import Tasks from "./pages/Tasks";
 import Trash from "./pages/Trash";
 import Users from "./pages/Users";
@@ -24,7 +26,7 @@ function Layout() {
       {/* <MobileSidebar /> */}
 
       <div className="flex-1 overflow-y-auto">
-        {/* <Navbar /> */}
+        <Navbar />
 
         <div className="p-4 2xl:px-10">
           <Outlet />
@@ -48,6 +50,7 @@ function App() {
           <Route path="/in-progress/:status" element={<Tasks />} />
           <Route path="/todo/:status" element={<Tasks />} />
           <Route path="/timer" element={<Timer />} />
+          <Route path="/reminders" element={<Reminders />} />
           <Route path="/team" element={<Users />} />
           <Route path="/trashed" element={<Trash />} />
           <Route path="/task/:id" element={<Taskdetails />} />
