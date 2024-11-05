@@ -13,7 +13,7 @@ import { summary } from "../assets/data";
 import clsx from "clsx";
 // import { Chart } from "../components/Chart";
 import { BGS, PRIOTITYSTYLES, TASK_TYPE, getInitials } from "../utils";
-// import UserInfo from "../components/UserInfo";
+import UserInfo from "../components/UserInfo";
 
 const TaskTable = ({ tasks }) => {
   const ICONS = {
@@ -64,7 +64,7 @@ const TaskTable = ({ tasks }) => {
                 BGS[index % BGS.length]
               )}
             >
-              {/* <UserInfo user={m} /> */}
+              <UserInfo user={m} />
             </div>
           ))}
         </div>

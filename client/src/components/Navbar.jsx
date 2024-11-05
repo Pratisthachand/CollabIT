@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setOpenSidebar, logout } from "../redux/slices/authSlice";
 import { useNavigate } from "react-router-dom";
 import { IoLogOutOutline } from "react-icons/io5";
-// import UserAvatar from "./UserAvatar";
+import UserAvatar from "./UserAvatar";
 // import NotificationPanel from "./NotificationPanel";
 
 const Navbar = () => {
@@ -37,6 +37,7 @@ const Navbar = () => {
           />
         </div>
         <div className="flex gap-2 items-center">
+          {/* <UserAvatar /> */}
           {user && (
             <button
               onClick={logoutHandler}
