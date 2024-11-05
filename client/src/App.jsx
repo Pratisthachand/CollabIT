@@ -23,8 +23,6 @@ function Layout() {
         <Sidebar />
       </div>
 
-      {/* <MobileSidebar /> */}
-
       <div className="flex-1 overflow-y-auto">
         <Navbar />
 
@@ -34,7 +32,7 @@ function Layout() {
       </div>
     </div>
   ) : (
-    <Navigate to="/log-in" state={{ from: location }} replace />
+    <Navigate to="/login" state={{ from: location }} replace />
   );
 }
 

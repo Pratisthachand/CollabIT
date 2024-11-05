@@ -57,7 +57,7 @@ const TaskCard = ({ task }) => {
         <div className="w-full border-t border-gray-200 my-2" />
         <div className="flex items-center justify-between mb-2">
           <div className="flex items-center gap-3">
-            <div className="flex gap-1 items-center text-sm text-gray-600">
+            {/* <div className="flex gap-1 items-center text-sm text-gray-600">
               <BiMessageAltDetail />
               <span>{task?.activities?.length}</span>
             </div>
@@ -68,7 +68,7 @@ const TaskCard = ({ task }) => {
             <div className="flex gap-1 items-center text-sm text-gray-600 ">
               <FaList />
               <span>0/{task?.subTasks?.length}</span>
-            </div>
+            </div> */}
           </div>
 
           <div className="flex flex-row-reverse">
@@ -86,7 +86,7 @@ const TaskCard = ({ task }) => {
           </div>
         </div>
 
-        {/* sub tasks */}
+        {/* sub tasks
         {task?.subTasks?.length > 0 ? (
           <div className="py-4 border-t border-gray-200">
             <h5 className="text-base line-clamp-1 text-black">
@@ -108,7 +108,7 @@ const TaskCard = ({ task }) => {
               <span className="text-gray-500">No Sub Task</span>
             </div>
           </>
-        )}
+        )} */}
 
         <div className="w-full pb-2">
           <button

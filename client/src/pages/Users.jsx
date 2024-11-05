@@ -43,7 +43,7 @@ const Users = () => {
     <tr className="border-b border-gray-200 text-gray-600 hover:bg-gray-400/10">
       <td className="p-2">
         <div className="flex items-center gap-3">
-          <div className="w-9 h-9 rounded-full text-white flex items-center justify-center text-sm bg-blue-700">
+          <div className="w-9 h-9 rounded-full text-white flex items-center justify-center text-sm bg-custom-purple">
             <span className="text-xs md:text-sm text-center">
               {getInitials(user.name)}
             </span>
@@ -94,7 +94,7 @@ const Users = () => {
           <Button
             label="Add New User"
             icon={<IoMdAdd className="text-lg" />}
-            className="flex flex-row-reverse gap-1 items-center bg-blue-600 text-white rounded-md 2xl:py-2.5"
+            className="flex flex-row-reverse gap-1 items-center bg-custom-purple text-white rounded-md 2xl:py-2.5"
             onClick={() => setOpen(true)}
           />
         </div>

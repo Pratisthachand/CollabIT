@@ -5,16 +5,23 @@ import { setOpenSidebar, logout } from "../redux/slices/authSlice";
 import { useNavigate } from "react-router-dom";
 import { IoLogOutOutline } from "react-icons/io5";
 import UserAvatar from "./UserAvatar";
-// import NotificationPanel from "./NotificationPanel";
+import { useLogoutMutation } from "../redux/slices/api/authApiSlice";
+import { toast } from "sonner";
 
 const Navbar = () => {
   const { user } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const logoutHandler = () => {
-    dispatch(logout());
-    navigate("/login");
+  const [logoutUser] = useLogoutMutation();
+  const logoutHandler = async () => {
+    try {
+      await logoutUser().unwrap();
+      dispatch(logout());
+      navigate("/login");
+    } catch (error) {
+      toast.error("Something went wrong");
+    }
   };
 
   return (

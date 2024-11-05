@@ -90,7 +90,7 @@ const AddTask = ({ open, setOpen }) => {
                 setSelected={setPriority}
               />
 
-              <div className="w-full flex items-center justify-center mt-4">
+              {/* <div className="w-full flex items-center justify-center mt-4">
                 <label
                   className="flex items-center gap-1 text-base text-ascent-2 hover:text-ascent-1 cursor-pointer my-4"
                   htmlFor="imgUpload"
@@ -106,7 +106,7 @@ const AddTask = ({ open, setOpen }) => {
                   <BiImages />
                   <span>Add Assets</span>
                 </label>
-              </div>
+              </div> */}
             </div>
 
             <div className="bg-gray-50 py-6 sm:flex sm:flex-row-reverse gap-4">

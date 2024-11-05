@@ -12,7 +12,7 @@ import clsx from "clsx";
 import { FaList } from "react-icons/fa";
 import UserInfo from "../UserInfo";
 import Button from "../Button";
-import ConfirmatioDialog from "../Dialogs";
+import ConfirmationDialog from "../Dialogs";
 
 const ICONS = {
   high: <MdKeyboardDoubleArrowUp />,
@@ -37,7 +37,7 @@ const Table = ({ tasks }) => {
         <th className="py-2">Task Title</th>
         <th className="py-2">Priority</th>
         <th className="py-2 line-clamp-1">Created At</th>
-        <th className="py-2">Assets</th>
+        {/* <th className="py-2">Assets</th> */}
         <th className="py-2">Team</th>
       </tr>
     </thead>
@@ -73,7 +73,7 @@ const Table = ({ tasks }) => {
         </span>
       </td>
 
-      <td className="py-2">
+      {/* <td className="py-2">
         <div className="flex items-center gap-3">
           <div className="flex gap-1 items-center text-sm text-gray-600">
             <BiMessageAltDetail />
@@ -88,7 +88,7 @@ const Table = ({ tasks }) => {
             <span>0/{task?.subTasks?.length}</span>
           </div>
         </div>
-      </td>
+      </td> */}
 
       <td className="py-2">
         <div className="flex">
@@ -136,12 +136,12 @@ const Table = ({ tasks }) => {
           </table>
         </div>
       </div>
-      TODO
+      {/* TODO
       <ConfirmationDialog
         open={openDialog}
         setOpen={setOpenDialog}
         onClick={deleteHandler}
-      />
+      /> */}
     </>
   );
 };

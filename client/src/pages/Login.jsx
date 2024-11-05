@@ -4,7 +4,11 @@ import { useNavigate } from "react-router-dom";
 import Textbox from "../components/Textbox";
 import Button from "../components/Button";
 import tailwindConfig from "../../tailwind.config";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { toast } from "sonner";
+import { useLoginMutation } from "../redux/slices/api/authApiSlice";
+import { setCredentials } from "../redux/slices/authSlice";
+import Loading from "/Users/pratisthachand/Desktop/CollabIT/client/src/components/Loader.jsx";
 
 const Login = () => {
   const { user } = useSelector((state) => state.auth);
@@ -15,11 +19,20 @@ const Login = () => {
   } = useForm();
 
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const [login, { isLoading }] = useLoginMutation();
 
   const submitHandler = async (data) => {
-    console.log("submit");
+    try {
+      const result = await login(data).unwrap();
+      dispatch(setCredentials(result));
+      navigate("/");
+    } catch (error) {
+      console.log(error);
+      toast.error(error?.data?.message || error.message);
+    }
   };
-
   // console.log(user);
 
   useEffect(() => {
@@ -88,11 +101,15 @@ const Login = () => {
                 Forget Password?
               </span>
 
-              <Button
-                type="submit"
-                label="Submit"
-                className="w-full h-10 bg-custom-purple text-white rounded-full"
-              />
+              {isLoading ? (
+                <Loading />
+              ) : (
+                <Button
+                  type="submit"
+                  label="Submit"
+                  className="w-full h-10 bg-custom-purple text-white rounded-full"
+                />
+              )}
             </div>
           </form>
         </div>{" "}
