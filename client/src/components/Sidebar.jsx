@@ -23,21 +23,21 @@ const linkData = [
     link: "tasks",
     icon: <FaTasks />,
   },
-  {
-    label: "Completed",
-    link: "completed/completed",
-    icon: <MdTaskAlt />,
-  },
-  {
-    label: "In Progress",
-    link: "in-progress/in progress",
-    icon: <MdOutlinePendingActions />,
-  },
-  {
-    label: "To Do",
-    link: "todo/todo",
-    icon: <MdOutlinePendingActions />,
-  },
+  // {
+  //   label: "Completed",
+  //   link: "completed/completed",
+  //   icon: <MdTaskAlt />,
+  // },
+  // {
+  //   label: "In Progress",
+  //   link: "in-progress/in progress",
+  //   icon: <MdOutlinePendingActions />,
+  // },
+  // {
+  //   label: "To Do",
+  //   link: "todo/todo",
+  //   icon: <MdOutlinePendingActions />,
+  // },
   {
     label: "Reminders",
     link: "reminder",
@@ -67,6 +67,7 @@ const Sidebar = () => {
   const location = useLocation();
   const path = location.pathname.split("/")[1];
 
+  // const sidebarLinks = user?.isAdmin ? linkData : linkData.slice(0, 3);
   const sidebarLinks = linkData;
 
   const closeSidebar = () => {

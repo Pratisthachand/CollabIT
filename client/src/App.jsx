@@ -5,7 +5,7 @@ import Sidebar from "./components/Sidebar";
 import Navbar from "./components/Navbar";
 import Login from "./pages/Login";
 import Reminders from "./pages/Reminders";
-import Tasks from "./pages/Tasks";
+import Tasks from "./pages/tasks";
 import Trash from "./pages/Trash";
 import Users from "./pages/Users";
 import Dashboard from "./pages/dashboard";
@@ -46,9 +46,9 @@ function App() {
           <Route index path="/" element={<Navigate to="/dashboard" />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/tasks" element={<Tasks />} />
-          <Route path="/completed/:status" element={<Tasks />} />
+          {/* <Route path="/completed/:status" element={<Tasks />} />
           <Route path="/in-progress/:status" element={<Tasks />} />
-          <Route path="/todo/:status" element={<Tasks />} />
+          <Route path="/todo/:status" element={<Tasks />} /> */}
           <Route path="/timer" element={<Timer />} />
           <Route path="/reminders" element={<Reminders />} />
           <Route path="/team" element={<Users />} />
