@@ -1,4 +1,4 @@
-import { Navigate, Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes, useLocation } from "react-router-dom";
 import { Toaster } from "sonner";
 import Login from "./pages/login";
 import Tasks from "./pages/tasks";
@@ -8,7 +8,7 @@ import Dashboard from "./pages/dashboard";
 import Taskdetails from "./pages/taskdetails";
 
 function Layout() {
-  const { user } = useSelector((state) => state.auth);
+  const user = "";
 
   const location = useLocation();
 
@@ -23,10 +23,7 @@ function Layout() {
       <div className="flex-1 overflow-y-auto">
         {/* <Navbar /> */}
 
-        <div className="p-4 2xl:px-10">
-          {/* <Outlet /> */}
-        </div>
-        
+        <div className="p-4 2xl:px-10">{/* <Outlet /> */}</div>
       </div>
     </div>
   ) : (
