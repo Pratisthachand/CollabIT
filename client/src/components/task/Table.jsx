@@ -7,12 +7,12 @@ import {
   MdKeyboardDoubleArrowUp,
 } from "react-icons/md";
 import { toast } from "sonner";
-import { BGS, PRIOTITYSTYLES, TASK_TYPE, formatDate } from "../../utils";
+import { BGS, PRIORITYSTYLES, TASK_TYPE, formatDate } from "../../utils";
 import clsx from "clsx";
 import { FaList } from "react-icons/fa";
 import UserInfo from "../UserInfo";
 import Button from "../Button";
-// import ConfirmatioDialog from "../Dialogs";
+import ConfirmatioDialog from "../Dialogs";
 
 const ICONS = {
   high: <MdKeyboardDoubleArrowUp />,
@@ -58,7 +58,7 @@ const Table = ({ tasks }) => {
 
       <td className="py-2">
         <div className={"flex gap-1 items-center"}>
-          <span className={clsx("text-lg", PRIOTITYSTYLES[task?.priority])}>
+          <span className={clsx("text-lg", PRIORITYSTYLES[task?.priority])}>
             {ICONS[task?.priority]}
           </span>
           <span className="capitalize line-clamp-1">
@@ -136,13 +136,12 @@ const Table = ({ tasks }) => {
           </table>
         </div>
       </div>
-
-      {/* TODO
-      <ConfirmatioDialog
+      TODO
+      <ConfirmationDialog
         open={openDialog}
         setOpen={setOpenDialog}
         onClick={deleteHandler}
-      /> */}
+      />
     </>
   );
 };
