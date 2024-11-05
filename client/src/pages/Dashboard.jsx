@@ -13,6 +13,8 @@ import { summary } from "../assets/data";
 import clsx from "clsx";
 import { BGS, PRIORITYSTYLES, TASK_TYPE, getInitials } from "../utils";
 import UserInfo from "../components/UserInfo";
+import { useGetDashboardStatsQuery } from "/Users/pratisthachand/Desktop/CollabIT/client/src/redux/slices/api/taskApiSlice.js";
+import Loading from "/Users/pratisthachand/Desktop/CollabIT/client/src/components/Loader.jsx";
 
 const TaskTable = ({ tasks }) => {
   const ICONS = {
@@ -145,7 +147,17 @@ const UserTable = ({ users }) => {
   );
 };
 const Dashboard = () => {
-  const totals = summary.tasks;
+  // const totals = summary.tasks;
+  const { data, isLoading } = useGetDashboardStatsQuery();
+
+  if (isLoading)
+    return (
+      <dic className="py-10">
+        <Loading />
+      </dic>
+    );
+
+  const totals = data?.tasks || {};
 
   const stats = [
     {
