@@ -147,7 +147,6 @@ const UserTable = ({ users }) => {
   );
 };
 const Dashboard = () => {
-  // const totals = summary.tasks;
   const { data, isLoading } = useGetDashboardStatsQuery();
 
   if (isLoading)
@@ -163,7 +162,7 @@ const Dashboard = () => {
     {
       _id: "1",
       label: "TOTAL TASKS",
-      total: summary?.totalTasks || 0,
+      total: data?.totalTasks || 0,
       icon: <FaNewspaper />,
       bg: "bg-[#1d4ed8]",
     },
@@ -184,9 +183,9 @@ const Dashboard = () => {
     {
       _id: "4",
       label: "TO-DOS",
-      total: totals["todo"],
+      total: totals["todo"] || 0,
       icon: <FaArrowsToDot />,
-      bg: "bg-[#be185d]" || 0,
+      bg: "bg-[#be185d]",
     },
   ];
 
@@ -220,9 +219,9 @@ const Dashboard = () => {
 
       <div className="w-full flex flex-col md:flex-row gap-4 2xl:gap-10 py-8">
         {/* /left */}
-        <TaskTable tasks={summary.last10Task} />
+        <TaskTable tasks={data?.last10Task} />
         {/* /right */}
-        <UserTable users={summary.users} />
+        <UserTable users={data?.users} />
       </div>
     </div>
   );

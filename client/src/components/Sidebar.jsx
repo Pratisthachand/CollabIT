@@ -38,11 +38,11 @@ const linkData = [
   //   link: "todo/todo",
   //   icon: <MdOutlinePendingActions />,
   // },
-  {
-    label: "Reminders",
-    link: "reminder",
-    icon: <FaBell />,
-  },
+  // {
+  //   label: "Reminders",
+  //   link: "reminder",
+  //   icon: <FaBell />,
+  // },
   {
     label: "Timer",
     link: "timer",

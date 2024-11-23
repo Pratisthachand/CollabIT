@@ -1,7 +1,7 @@
-import React from "react";
+// import React from "react";
 
-const Reminders = () => {
-  return <div>Reminders</div>;
-};
+// const Reminders = () => {
+//   return <div>Reminders</div>;
+// };
 
-export default Reminders;
+// export default Reminders;

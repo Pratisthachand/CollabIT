@@ -4,7 +4,7 @@ import { Toaster } from "sonner";
 import Sidebar from "./components/Sidebar";
 import Navbar from "./components/Navbar";
 import Login from "./pages/Login";
-import Reminders from "./pages/Reminders";
+// import Reminders from "./pages/Reminders";
 import Tasks from "./pages/tasks";
 import Trash from "./pages/Trash";
 import Users from "./pages/Users";
@@ -45,7 +45,7 @@ function App() {
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/tasks" element={<Tasks />} />
           <Route path="/timer" element={<Timer />} />
-          <Route path="/reminders" element={<Reminders />} />
+          {/* <Route path="/reminders" element={<Reminders />} /> */}
           <Route path="/team" element={<Users />} />
           <Route path="/trashed" element={<Trash />} />
           <Route path="/task/:id" element={<Taskdetails />} />
