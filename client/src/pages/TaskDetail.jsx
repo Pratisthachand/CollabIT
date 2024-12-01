@@ -290,7 +290,7 @@ const TaskDetail = () => {
                       >
                         <div
                           className={
-                            "w-10 h-10 rounded-full text-white flex items-center justify-center text-sm -mr-1 bg-blue-600"
+                            "w-10 h-10 rounded-full text-white flex items-center justify-center text-sm -mr-1 bg-custom-purple"
                           }
                         >
                           <span className="text-center">
@@ -418,7 +418,7 @@ const TaskDetail = () => {
                           key={index}
                           href={el}
                           target="_blank"
-                          className="text-blue-600 hover:underline"
+                          className="text-custom-purple hover:underline"
                         >
                           {el}
                         </a>
