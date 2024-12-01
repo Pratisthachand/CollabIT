@@ -1,10 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
-// import { user } from "../../assets/data";
 
 const initialState = {
   user: localStorage.getItem("userInfo")
     ? JSON.parse(localStorage.getItem("userInfo"))
-    : null, //for now, will add user data in assets folder later
+    : null,
 
   isSidebarOpen: false,
 };
