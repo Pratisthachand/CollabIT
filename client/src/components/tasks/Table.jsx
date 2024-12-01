@@ -136,12 +136,19 @@ const Table = ({ tasks }) => {
           </table>
         </div>
       </div>
-      {/* TODO
+
       <ConfirmationDialog
         open={openDialog}
         setOpen={setOpenDialog}
         onClick={deleteHandler}
-      /> */}
+      />
+
+      <AddTask
+        open={openEdit}
+        setOpen={setOpenEdit}
+        task={selected}
+        key={new Date().getTime()}
+      />
     </>
   );
 };

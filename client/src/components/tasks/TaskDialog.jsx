@@ -58,7 +58,7 @@ const ChangeTaskActions = ({ _id, stage }) => {
 
   const items = [
     {
-      label: "To Do",
+      label: "To-Do",
       stage: "todo",
       icon: <TaskColor className="bg-blue-600" />,
       onClick: () => changeHanlder("todo"),
