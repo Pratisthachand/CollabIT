@@ -49,7 +49,7 @@ const Tasks = () => {
           <Button
             label="Create Task"
             icon={<IoMdAdd className="text-lg" />}
-            className="flex flex-row-reverse gap-1 items-center bg-blue-600 text-white rounded-md py-2 2xl:py-2.5"
+            className="flex flex-row-reverse gap-1 items-center bg-custom-purple text-white rounded-md py-2 2xl:py-2.5"
             onClick={() => setOpen(true)}
           />
         )}
@@ -57,7 +57,7 @@ const Tasks = () => {
 
       <div>
         <Tabs tabs={TABS} setSelected={setSelected}>
-          {!status && (
+          {/* {!status && (
             <div className="w-full flex justify-between gap-4 md:gap-x-12 py-4">
               <TaskTitle label="To Do" className={TASK_TYPE.todo} />
               <TaskTitle
@@ -66,7 +66,7 @@ const Tasks = () => {
               />
               <TaskTitle label="Completed" className={TASK_TYPE.completed} />
             </div>
-          )}
+          )} */}
 
           {selected === 0 ? (
             <BoardView tasks={data?.tasks} />

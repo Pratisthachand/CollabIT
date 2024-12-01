@@ -23,7 +23,7 @@ import SelectList from "../SelectList";
 import Textbox from "../Textbox";
 import UserList from "./UsersSelect";
 
-const LISTS = ["TODO", "IN PROGRESS", "COMPLETED"];
+const LISTS = ["TO DO", "IN PROGRESS", "COMPLETED"];
 const PRIORIRY = ["HIGH", "MEDIUM", "NORMAL", "LOW"];
 
 const uploadedFileURLs = [];
@@ -181,7 +181,7 @@ const AddTask = ({ open, setOpen, task }) => {
                   error={errors.date ? errors.date.message : ""}
                 />
               </div>
-              <div className="w-full flex items-center justify-center mt-4">
+              {/* <div className="w-full flex items-center justify-center mt-4">
                 <label
                   className="flex items-center gap-1 text-base text-ascent-2 hover:text-ascent-1 cursor-pointer my-4"
                   htmlFor="imgUpload"
@@ -197,7 +197,7 @@ const AddTask = ({ open, setOpen, task }) => {
                   <BiImages />
                   <span>Add Assets</span>
                 </label>
-              </div>
+              </div> */}
             </div>
 
             <div className="w-full">
