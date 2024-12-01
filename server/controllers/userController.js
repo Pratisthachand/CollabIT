@@ -15,6 +15,13 @@ const loginUser = asyncHandler(async (req, res) => {
       .json({ status: false, message: "Invalid email or password." });
   }
 
+  // Add these debug logs
+  console.log("Found user:", {
+    email: user.email,
+    isActive: user.isActive,
+    isAdmin: user.isAdmin,
+  });
+
   if (!user?.isActive) {
     return res.status(401).json({
       status: false,
