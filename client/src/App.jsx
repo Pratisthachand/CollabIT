@@ -104,7 +104,6 @@ const App = () => {
             <Route path="/completed/:status?" element={<Tasks />} />
             <Route path="/in-progress/:status?" element={<Tasks />} />
             <Route path="/todo/:status?" element={<Tasks />} />
-            <Route path="/timer" element={<Timer />} />
             <Route path="/trashed" element={<Trash />} />
             <Route path="/task/:id" element={<TaskDetail />} />
             <Route path="/team" element={<Users />} />
