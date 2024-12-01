@@ -8,7 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { toast } from "sonner";
 import { useLoginMutation } from "../redux/slices/api/authApiSlice";
 import { setCredentials } from "../redux/slices/authSlice";
-import Loading from "/Users/pratisthachand/Desktop/CollabIT/client/src/components/Loader.jsx";
+import Loading from "../components/Loading.jsx";
 
 const Login = () => {
   const { user } = useSelector((state) => state.auth);
