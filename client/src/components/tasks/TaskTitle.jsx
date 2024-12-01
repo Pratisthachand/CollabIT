@@ -11,9 +11,9 @@ const TaskTitle = ({ label, className }) => {
         </p>
       </div>
 
-      <button onClick={onclick} className="hidden md:block">
+      {/* <button onClick={onclick} className="hidden md:block">
         <IoMdAdd className="text-lg text-black dark:text-gray-300" />
-      </button>
+      </button> */}
     </div>
   );
 };

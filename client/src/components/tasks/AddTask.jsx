@@ -23,7 +23,7 @@ import SelectList from "../SelectList";
 import Textbox from "../Textbox";
 import UserList from "./UsersSelect";
 
-const LISTS = ["TO DO", "IN PROGRESS", "COMPLETED"];
+const LISTS = ["TODO", "IN PROGRESS", "COMPLETED"];
 const PRIORIRY = ["HIGH", "MEDIUM", "NORMAL", "LOW"];
 
 const uploadedFileURLs = [];
