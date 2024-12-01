@@ -35,9 +35,9 @@ const createTask = asyncHandler(async (req, res) => {
     const task = await Task.create({
       title,
       team,
-      stage: stage.toLowerCase(),
+      stage: stage.toUpperCase(),
       date,
-      priority: priority.toLowerCase(),
+      priority: priority.toUpperCase(),
       assets,
       activities: activity,
       links: newLinks || [],
@@ -144,9 +144,9 @@ const updateTask = asyncHandler(async (req, res) => {
 
     task.title = title;
     task.date = date;
-    task.priority = priority.toLowerCase();
+    task.priority = priority.toUpperCase();
     task.assets = assets;
-    task.stage = stage.toLowerCase();
+    task.stage = stage.toUpperCase();
     task.team = team;
     task.links = newLinks;
     task.description = description;
@@ -168,7 +168,7 @@ const updateTaskStage = asyncHandler(async (req, res) => {
 
     const task = await Task.findById(id);
 
-    task.stage = stage.toLowerCase();
+    task.stage = stage.toUpperCase();
 
     await task.save();
 

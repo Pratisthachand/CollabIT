@@ -79,14 +79,14 @@ export function countTasksByStage(tasks) {
   let completedCount = 0;
 
   tasks?.forEach((task) => {
-    switch (task.stage.toLowerCase()) {
-      case "in progress":
+    switch (task.stage.toUpperCase()) {
+      case "IN PROGRESS":
         inProgressCount++;
         break;
-      case "todo":
+      case "TODO":
         todoCount++;
         break;
-      case "completed":
+      case "COMPLETED":
         completedCount++;
         break;
       default:

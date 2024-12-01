@@ -6,13 +6,13 @@ const taskSchema = new Schema(
     date: { type: Date, default: new Date() },
     priority: {
       type: String,
-      default: "normal",
-      enum: ["high", "medium", "normal", "low"],
+      default: "NORMAL",
+      enum: ["HIGH", "MEDIUM", "NORMAL", "LOW"],
     },
     stage: {
       type: String,
       default: "TODO",
-      enum: ["TODO", "IN PROGRESS", "COMPLETED"],
+      enum: ["TODO", "IN PROGRESS", "COMPLETED"], // Ensure these values match the frontend
     },
     activities: [
       {

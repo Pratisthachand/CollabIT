@@ -23,8 +23,8 @@ import SelectList from "../SelectList";
 import Textbox from "../Textbox";
 import UserList from "./UsersSelect";
 
-const LISTS = ["TODO", "IN PROGRESS", "COMPLETED"];
-const PRIORIRY = ["HIGH", "MEDIUM", "NORMAL", "LOW"];
+const LISTS = ["TODO", "IN PROGRESS", "COMPLETED"]; // Ensure these values match the schema
+const PRIORITY = ["HIGH", "MEDIUM", "NORMAL", "LOW"];
 
 const uploadedFileURLs = [];
 
@@ -79,7 +79,7 @@ const AddTask = ({ open, setOpen, task }) => {
   const [stage, setStage] = useState(task?.stage?.toUpperCase() || LISTS[0]);
   const [team, setTeam] = useState(task?.team || []);
   const [priority, setPriority] = useState(
-    task?.priority?.toUpperCase() || PRIORIRY[2]
+    task?.priority?.toUpperCase() || PRIORITY[2]
   );
   const [assets, setAssets] = useState([]);
   const [uploading, setUploading] = useState(false);
@@ -106,10 +106,10 @@ const AddTask = ({ open, setOpen, task }) => {
         ...data,
         assets: [...URLS, ...uploadedFileURLs],
         team,
-        stage,
-        priority,
+        stage: stage.toUpperCase(),
+        priority: priority.toUpperCase(),
       };
-      console.log(data, newData);
+      console.log("Submitting task with data:", newData); // Debugging log
       const res = task?._id
         ? await updateTask({ ...newData, _id: task._id }).unwrap()
         : await createTask(newData).unwrap();
@@ -120,7 +120,7 @@ const AddTask = ({ open, setOpen, task }) => {
         setOpen(false);
       }, 500);
     } catch (err) {
-      console.log(err);
+      console.log("Error submitting task:", err); // Debugging log
       toast.error(err?.data?.message || err.error);
     }
   };
@@ -162,7 +162,7 @@ const AddTask = ({ open, setOpen, task }) => {
               />
               <SelectList
                 label="Priority Level"
-                lists={PRIORIRY}
+                lists={PRIORITY}
                 selected={priority}
                 setSelected={setPriority}
               />
@@ -181,23 +181,6 @@ const AddTask = ({ open, setOpen, task }) => {
                   error={errors.date ? errors.date.message : ""}
                 />
               </div>
-              {/* <div className="w-full flex items-center justify-center mt-4">
-                <label
-                  className="flex items-center gap-1 text-base text-ascent-2 hover:text-ascent-1 cursor-pointer my-4"
-                  htmlFor="imgUpload"
-                >
-                  <input
-                    type="file"
-                    className="hidden"
-                    id="imgUpload"
-                    onChange={(e) => handleSelect(e)}
-                    accept=".jpg, .png, .jpeg"
-                    multiple={true}
-                  />
-                  <BiImages />
-                  <span>Add Assets</span>
-                </label>
-              </div> */}
             </div>
 
             <div className="w-full">
@@ -216,7 +199,7 @@ const AddTask = ({ open, setOpen, task }) => {
               <p>
                 Add Links{" "}
                 <span className="text- text-gray-600">
-                  seperated by comma (,)
+                  separated by comma (,)
                 </span>
               </p>
               <textarea
