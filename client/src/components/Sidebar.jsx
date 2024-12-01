@@ -7,6 +7,7 @@ import {
   MdOutlinePendingActions,
   MdSettings,
   MdTaskAlt,
+  MdTimer,
 } from "react-icons/md";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useLocation } from "react-router-dom";
@@ -43,6 +44,11 @@ const linkData = [
     label: "Team",
     link: "team",
     icon: <FaUsers />,
+  },
+  {
+    label: "Timer",
+    link: "timer",
+    icon: <MdTimer />,
   },
   // {
   //   label: "Status",
