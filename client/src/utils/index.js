@@ -4,6 +4,7 @@ export const formatDate = (date) => {
   const day = date.getDate();
   const year = date.getFullYear();
 
+  // Format the date as "MM dd, yyyy"
   const formattedDate = `${day}-${month}-${year}`;
 
   return formattedDate;
@@ -25,16 +26,29 @@ export function dateFormatter(dateString) {
 }
 
 export function getInitials(fullName) {
-  const names = fullName.split(" ");
+  const names = fullName?.split(" ");
 
-  const initials = names.slice(0, 2).map((name) => name[0].toUpperCase());
+  const initials = names?.slice(0, 2).map((name) => name[0]?.toUpperCase());
 
-  const initialsStr = initials.join("");
+  const initialsStr = initials?.join("");
 
   return initialsStr;
 }
 
-export const PRIORITYSTYLES = {
+export const updateURL = ({ searchTerm, navigate, location }) => {
+  const params = new URLSearchParams();
+
+  if (searchTerm) {
+    params.set("search", searchTerm);
+  }
+
+  const newURL = `${location?.pathname}?${params.toString()}`;
+  navigate(newURL, { replace: true });
+
+  return newURL;
+};
+
+export const PRIOTITYSTYELS = {
   high: "text-red-600",
   medium: "text-yellow-600",
   low: "text-blue-600",
@@ -52,3 +66,37 @@ export const BGS = [
   "bg-red-600",
   "bg-green-600",
 ];
+
+export const getCompletedSubTasks = (items) => {
+  const totalCompleted = items?.filter((item) => item?.isCompleted).length;
+
+  return totalCompleted;
+};
+
+export function countTasksByStage(tasks) {
+  let inProgressCount = 0;
+  let todoCount = 0;
+  let completedCount = 0;
+
+  tasks?.forEach((task) => {
+    switch (task.stage.toLowerCase()) {
+      case "in progress":
+        inProgressCount++;
+        break;
+      case "todo":
+        todoCount++;
+        break;
+      case "completed":
+        completedCount++;
+        break;
+      default:
+        break;
+    }
+  });
+
+  return {
+    inProgress: inProgressCount,
+    todo: todoCount,
+    completed: completedCount,
+  };
+}
