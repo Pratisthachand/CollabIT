@@ -1,19 +1,16 @@
+import { Dialog } from "@headlessui/react";
 import React from "react";
 import { useForm } from "react-hook-form";
-import { useSelector } from "react-redux";
-import ModalWrapper from "./ModalWrapper";
-import { Dialog } from "@headlessui/react";
-import Textbox from "./Textbox";
-import Loading from "./Loader";
-import Button from "./Button";
-import { useRegisterMutation } from "../redux/slices/api/authApiSlice";
+import { useDispatch, useSelector } from "react-redux";
 import { toast } from "sonner";
+import { useRegisterMutation } from "../redux/slices/api/authApiSlice";
+import { useUpdateUserMutation } from "../redux/slices/api/userApiSlice";
+import { setCredentials } from "../redux/slices/authSlice";
+import { Button, Loading, ModalWrapper, Textbox } from "./";
 
 const AddUser = ({ open, setOpen, userData }) => {
   let defaultValues = userData ?? {};
   const { user } = useSelector((state) => state.auth);
-
-  const isUpdating = false;
 
   const {
     register,
@@ -21,22 +18,33 @@ const AddUser = ({ open, setOpen, userData }) => {
     formState: { errors },
   } = useForm({ defaultValues });
 
+  const dispatch = useDispatch();
+
   const [addNewUser, { isLoading }] = useRegisterMutation();
+  const [updateUser, { isLoading: isUpdating }] = useUpdateUserMutation();
+
   const handleOnSubmit = async (data) => {
     try {
       if (userData) {
+        const res = await updateUser(data).unwrap();
+        toast.success(res?.message);
+        if (userData?._id === user?._id) {
+          dispatch(setCredentials({ ...res?.user }));
+        }
       } else {
-        const result = await addNewUser({
+        const res = await addNewUser({
           ...data,
-          password: data.email,
+          password: data?.email,
         }).unwrap();
-        toast.success("New user added successfully");
+        toast.success("New User added successfully");
       }
+
       setTimeout(() => {
         setOpen(false);
       }, 1500);
-    } catch (error) {
-      toast.error("Something went wrong");
+    } catch (err) {
+      console.log(err);
+      toast.error(err?.data?.message || err.error);
     }
   };
 
@@ -106,7 +114,7 @@ const AddUser = ({ open, setOpen, userData }) => {
             <div className="py-3 mt-4 sm:flex sm:flex-row-reverse">
               <Button
                 type="submit"
-                className="bg-custom-purple px-8 text-sm font-semibold text-white hover:bg-blue-700  sm:w-auto"
+                className="bg-blue-600 px-8 text-sm font-semibold text-white hover:bg-blue-700  sm:w-auto"
                 label="Submit"
               />
 
